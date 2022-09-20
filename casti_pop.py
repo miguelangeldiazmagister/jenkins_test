@@ -7,10 +7,6 @@ import zipfile,coloredlogs,logging
 from datetime import datetime
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
-path_CURRENT=os.path.dirname(os.path.realpath(__file__))
-sys.path.append(path_CURRENT+'/../')
-from utilities.data import paths
-from utilities.master import totalTime
 #=====================================================================
 #=====================================================================
 #=====================================================================
@@ -24,7 +20,7 @@ load_dotenv()
 filename='ptti_catalogo'
 name_zip=filename+'.zip'
 name_xlsx=filename+'.xlsx'
-final_path = paths['logs'] + name_xlsx
+final_path = "D:/t152430/Documents/Github/files/logs/" + name_xlsx
 user = os.getenv('PTTI_USER3')
 pasw = os.getenv('PTTI_PASSWORD3')
 try:
@@ -44,7 +40,6 @@ try:
     open(final_path, 'wb').write(response0.content)
     print("Fichero generado en " + final_path)
     print("[END-TIME]["+str(datetime.now())+"]")
-    print('Total runtime: '+ str(totalTime(start, datetime.now())[0])+ ' minutes '+ str(totalTime(start, datetime.now())[1])+ ' seconds')
     print("======================================================")
 except Exception as e:
     print(str(e))
