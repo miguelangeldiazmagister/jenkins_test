@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('script') {
       steps {
-        sh 'python3 casti_pop.py'
+        sh 'python casti_pop.py'
       }
     }
   }
